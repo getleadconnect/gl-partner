@@ -1,0 +1,782 @@
+body {
+    background-color: #E5E5E5;;
+} 
+
+.navbar-brand {
+    margin: 44px 0px 0px 0px;
+    width: 209px;
+    height: 57px;
+
+}
+
+.nav-item{  
+    margin-top: 53px; 
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 165.7%;
+    color: #000000;
+}
+
+.nav-link {
+    color: #000000 !important;
+    padding-left: 40px !important;
+}
+ 
+.btn-outline-danger {
+    margin-top: 46px;
+    width: 127px;
+    height: 39px;
+    float: left;  
+    color: #000000 !important;
+    border-color: #FF4B4B !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: #FF4B4B !important;
+    color: #FFFFFF !important;
+}
+
+.btn-danger {
+    margin-top: 46px;
+    margin-left: 23px;
+    width: 127px;
+    height: 39px;
+    background-color: #FF4B4B !important;
+    border-color: #FF4B4B !important;
+}
+
+.btn-danger:hover {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+
+
+.heading {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 100.7%;
+    color: #000000;
+    padding-top: 130px;
+}
+
+.heading2 {
+    margin-top: -50px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 61px;
+    line-height: 100.7%;
+    color: #FF4B4B;
+}
+
+.para {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 165.7%;
+    color: #000000 !important;
+}
+
+.rectangle {
+    width: 280px;  
+    height: 176px;
+    margin-top: 80px; 
+    background: #FFFFFF;
+    box-shadow: 23px 25px 68px rgba(54, 144, 251, 0.07);
+}
+
+.arm-image {
+    width: 79px;
+    height: 79px;
+    padding: 10px 0 0 66px;
+}
+
+.arm-para {
+    padding: 20px 0 0 66px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100.7%;
+    color: #000000;
+}
+
+.team-image {
+    width: 64px;
+    height: 64px;
+    padding: 30px 0 0 60px;
+}
+
+.team-para {
+    padding: 35px 0 0 63px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100.7%;
+    color: #000000;
+
+}
+
+.growth-image {
+    width: 69px;
+    height: 69px;
+    padding: 30px 0 0 66px;
+
+}
+
+.growth-para {
+    padding: 35px 0 0 66px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100.7%;
+    color: #000000;
+}
+
+.rect_1 {
+    padding-left: 25px !important;
+}
+
+.rect_2 {
+    padding-left: 35px !important;
+}
+
+.register {
+    margin-top: 97px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100.7%;
+    text-align: center;
+    color: #000000;
+}
+
+.dwn-arrow {
+    width: 34px;
+    height: 34px;
+    margin: 8px 0 0 0px;
+
+}
+
+.group1 {
+    width: 100%;
+    margin-top: 80px;
+}
+
+
+.heading3 {  
+    margin-top: 56px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 100.7%;
+    text-align: center;
+    color: #000000;
+}
+
+.heading4 {
+    margin-top: -40px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 100.7%;
+    text-align: center;
+    color: #FF4B4B;
+}
+
+.para2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 165.7%;
+    text-align: center;
+    color: #313131 !important;
+}
+
+
+
+.rectangle4 {
+    margin-top: 45px;
+    background: #FFFFFF;
+    box-shadow: 27px -10px 68px rgba(54, 144, 251, 0.07);
+}
+
+.form-group {
+    padding-top: 76px;
+    padding-bottom: 74px;
+}
+
+
+#form-name {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 165.7%;
+    color: #49424E;
+    padding-top: 20px;
+}
+
+input[type=text], select, textarea {
+    width: 280px;
+    height: 45px;
+    background: #F1F7FF;
+    border: none;
+    border-radius: 0px;
+} 
+
+input[type=number], select, textarea {
+    width: 280px;
+    height: 45px;
+    background: #F1F7FF;
+    border: none;
+    border-radius: 0px;
+} 
+
+input[type=email], select, textarea {
+    width: 280px;
+    height: 45px;
+    background: #F1F7FF;
+    border: none;
+    border-radius: 0px;
+} 
+
+input[type=website], select, textarea {
+    width: 280px;
+    height: 45px;
+    background: #F1F7FF;
+    border: none;
+    border-radius: 0px;
+} 
+
+.lbtn-danger {
+
+    width: 100%;
+    height: 65px;
+    background: #FF4B4B;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 165.7%;
+    color: #FFFFFF;
+    margin-top: 50px !important;
+    margin-left: 30px;
+    border-radius: 0px !important;
+}
+
+.section-4 ::placeholder {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 165.7%;
+
+}
+
+.list-footer {
+    list-style-type: none;
+}
+
+.right {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 165.7%;
+    color: #5879A5;
+
+}
+
+.li-footer {
+    float: left;
+    margin-top: 0px; 
+    padding-left: 25px;
+    color: #5879A5;
+}  
+
+.footer {
+    margin-top: 101px;
+    margin-bottom: 70px; 
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 165.7%;
+    color: #5879A5;
+}
+
+
+@media screen and (max-width: 576px) {
+
+    .navbar-toggler {
+        margin-top: 36px;
+    }
+
+    .nav-item {
+        margin-top: 20px;
+    }
+
+    .heading {
+        margin-top: -30px;
+        font-size: 40px;
+    }
+
+    .heading2 {
+        font-size: 40px;
+    }
+
+    .para {
+        width: 75%;
+    }
+
+    .rectangle {
+        width: 100%;
+        height: 100%;
+    }
+
+    .arm {
+        width: 109px;
+        height: 109px; 
+    }
+
+    
+    .arm-para {
+     padding-top: 50px;
+    }
+
+    .team {
+        width: 109px;
+        height: 109px;
+    }
+
+    
+    .team-para {
+      padding-top: 90px;
+    }
+
+    .growth {
+        width: 109px;
+        height: 109px;
+    }
+
+    
+    .growth-para {
+     padding-top: 80px;
+    }
+
+    .rect_1, .rect_2{
+        margin-top: 25px;
+    }
+
+    .register {
+        margin-top: 155px;
+    }
+
+    .group1 {
+        width: 100%;
+    }
+
+    .para2 {
+        width: 90%;
+        padding-left: 5px;
+    }
+    
+    .form-group {
+        padding-top: 26px;
+        padding-bottom: 44px;
+    }
+    
+    
+    #form-name {
+        padding-top: 20px;
+    }
+
+    .rowq {
+        padding-left: 50px !important;
+    }
+    
+    input[type=text], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=number], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=email], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=website], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    .lbtn-danger {
+        margin-left: 0px;
+    }
+
+    .right {
+        padding-left: 50px;
+        margin-top: -20px;
+    }
+
+    .li-footer {
+        float:none;
+    }
+
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+
+    .navbar-toggler {
+        margin-top: 36px;
+    }
+
+    .nav-item {
+        margin-top: 20px;
+    }
+
+    .heading {
+        margin-top: -30px;
+        font-size: 40px;
+    }
+
+    .heading2 {
+        font-size: 40px;
+    }
+
+    .para {
+        width: 75%;
+    }
+
+    .heading3, .heading4, .para2 {
+        text-align: center !important;
+    }
+
+    .rectangle {
+        width: 100%;
+        height: 100%;
+    }
+
+    .rectangle4 {
+    width: 100%;
+    margin-left: -100px;
+    }
+
+    .arm {
+        width: 109px;
+        height: 109px; 
+    }
+
+    
+    .arm-para {
+     padding-top: 50px;
+    }
+
+    .team {
+        width: 109px;
+        height: 109px;
+    }
+
+    
+    .team-para {
+      padding-top: 90px;
+    }
+
+    .growth {
+        width: 109px;
+        height: 109px;
+    }
+
+    
+    .growth-para {
+     padding-top: 80px;
+    }
+
+    .rect_1, .rect_2{
+        margin-top: 25px;
+    }
+
+    .register {
+        margin-top: 155px;
+    }
+
+    .group1 {
+        width: 100%;
+    }
+
+    .para2 {
+        width: 90%;
+        padding-left: 30px;
+    }
+    
+    .form-group {
+        padding-top: 26px;
+        padding-bottom: 44px;
+    }
+    
+    
+    #form-name {
+        padding-top: 20px;
+    }
+
+    .rowq {
+        padding-left: 50px !important;
+    }
+    
+    input[type=text], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=number], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=email], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=website], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    .lbtn-danger {
+        margin-left: -120px;
+        width: 90%;
+    }
+
+    .right {
+        padding-left: 50px;
+        margin-top: -20px;
+    }
+
+    .li-footer {
+        float:none;
+    }
+
+
+}
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+    .navbar-toggler {
+        margin-top: 36px;
+    }
+
+    .nav-item {
+        margin-top: 20px;
+    }
+
+    .heading {
+        margin-top: -30px;
+        font-size: 40px;
+    }
+
+    .heading2 {
+        font-size: 40px;
+    }
+
+    .para {
+        width: 75%;
+    }
+
+    .heading3, .heading4, .para2 {
+        text-align: center !important;
+    }
+
+    .rectangle {
+        width: 100%;
+        height: 100%;
+    }
+
+    .rectangle4 {
+    width: 100%;
+    margin-left: -100px;
+    }
+
+    .arm {
+        width: 109px;
+        height: 109px; 
+    }
+
+    
+    .arm-para {
+     padding-top: 50px;
+    }
+
+    .team {
+        width: 109px;
+        height: 109px;
+    }
+
+    
+    .team-para {
+      padding-top: 90px;
+    }
+
+    .growth {
+        width: 109px;
+        height: 109px;
+    }
+
+    
+    .growth-para {
+     padding-top: 80px;
+    }
+
+    .rect_1, .rect_2{
+        margin-top: 25px;
+    }
+
+    .register {
+        margin-top: 155px;
+    }
+
+    .group1 {
+        width: 100%;
+    }
+
+    .para2 {
+        width: 90%;
+        padding-left: 30px;
+    }
+    
+    .form-group {
+        padding-top: 26px;
+        padding-bottom: 44px;
+    }
+    
+    
+    #form-name {
+        padding-top: 20px;
+    }
+
+    .rowq {
+        padding-left: 50px !important;
+    }
+    
+    input[type=text], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=number], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=email], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    input[type=website], select, textarea {
+        width: 90%;
+        height: 45px;
+    } 
+    
+    .lbtn-danger {
+        margin-left: -120px;
+        width: 90%;
+    }
+
+    .right {
+        padding-left: 50px;
+        margin-top: -20px;
+    }
+
+    .li-footer {
+        float:none;
+    }
+
+
+}
+
+
+
+
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+
+    .btn-danger {
+        margin-left: 0px;
+    } 
+
+    .btn-outline-danger {
+        margin-right: 20px;
+    }
+
+    .heading {
+        font-size: 40px;
+    }
+
+    .heading2 {
+        font-size: 38px;
+    }
+
+    .rect_1 {
+        padding-left: 35px !important;
+    }
+    
+    .rect_2 {
+        padding-left: 55px !important;
+    }
+
+    .rectangle {
+        width: 250px;
+        height: 176px;
+    }
+
+    input[type=text], select, textarea {
+        width: 180%;
+        height: 45px;
+    } 
+
+    input[type=number], select, textarea {
+        width: 180%;
+        height: 45px;
+    } 
+    
+    input[type=email], select, textarea {
+        width: 180%;
+        height: 45px;
+    } 
+    
+    input[type=website], select, textarea {
+        width: 180%;
+        height: 45px;
+    } 
+
+    .list-footer {
+        padding-left: 30rem;
+        margin-top: -30px;
+    }
+
+}
+
+
