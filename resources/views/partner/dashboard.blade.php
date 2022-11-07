@@ -10,7 +10,7 @@
                 <div class="col-md-12 col-lg-6 col-xl-6">
 
                     <!--begin::Total Profit-->
-                    <div class="kt-widget24">
+                    {{-- <div class="kt-widget24">
                         <a href="{{ url('admin/client') }}">
                             <div class="kt-widget24__details">
                                 <div class="kt-widget24__info">
@@ -25,14 +25,14 @@
                             <div class="kt-widget24__action">
                             </div>
                         </a>
-                    </div>
+                    </div> --}}
 
                     <!--end::Total Profit-->
                 </div>
                 <div class="col-md-12 col-lg-6 col-xl-6">
 
                     <!--begin::Total channel partner-->
-                    <a href="{{ url('admin/channel-partner') }}">
+                    {{-- <a href="{{ url('admin/channel-partner') }}">
                         <div class="kt-widget24">
                             <div class="kt-widget24__details">
                                 <div class="kt-widget24__info">
@@ -47,7 +47,7 @@
                             <div class="kt-widget24__action">
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
                     <!--end::New Feedbacks-->
                 </div>
                 {{-- <div class="col-md-12 col-lg-6 col-xl-3">

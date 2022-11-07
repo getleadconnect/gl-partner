@@ -24,6 +24,8 @@ class LoginController extends Controller
 
   public function login(Request $request)
     {
+        Auth::guard('admin')->logout();
+        Auth::guard('partner')->logout();
         // return response()->json(['data'=>request()->all()]);
         // dd(request()->all());
         $this->validate(request(), [
