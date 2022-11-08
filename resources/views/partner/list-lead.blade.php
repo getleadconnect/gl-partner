@@ -113,7 +113,8 @@
                                     value="{{ old('mobile') }}" name="mobile" id="mobile" required>
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="recipient-name" class="form-control-label">Email</label>
+                                <label for="recipient-name" class="form-control-label">Email<span
+                                    style="color: red;">*</span></label>
                                 <input type="text" class="form-control" placeholder="Email"
                                     value="{{ old('email') }}" name="email" id="email">
                             </div>
