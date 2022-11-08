@@ -151,6 +151,7 @@
                                         <thead>
                                             <tr>
                                                 <td style="width:1%">#</td>
+                                                <td style="width:25%">Client</td>
                                                 <td style="width:30%">Bussiness Type</td>
                                                 <td style="width:25%">Commission</td>
                                                 <td style="width:15%">Status</td>
@@ -165,12 +166,20 @@
                                                         <input type="checkbox"><span></span>
                                                     </label>
                                                 </td>
+                                                <td>{{ $pending->company_name}} </td>
                                                 <td>
                                                     <span class="kt-widget11__title">{{ $pending->plan_type == 1 ? "Product" : "Service"}}</span>
                                                     <span class="kt-widget11__sub">{{ App\Models\Admin\ProductAndService::where('id',$pending->plan_id)->first()->plan_name }}</span>
                                                 </td>
                                                 <td>{{ $pending->commission_amount ? $pending->commission_amount." ₹" : 'not disclosed'}} </td>
-                                                <td><span class="kt-badge kt-badge--inline kt-badge--danger">pending</span></td>
+                                                <td>
+                                                @if ($pending->payment_status == 1)
+                                                    <span class="kt-badge kt-badge--inline kt-badge--brand">not paid</span>    
+                                                @endif
+                                                @if ($pending->payment_status == 2)
+                                                    <span class="kt-badge kt-badge--inline kt-badge--info">pending</span>       
+                                                @endif
+                                                </td>
                                                 <td class="kt-align-right kt-font-brand  kt-font-bold">{{ $pending->total_amount ?  $pending->total_amount." ₹" : 'not disclosed'
                                                  }} </td>
                                             </tr>
@@ -237,6 +246,7 @@
                                     <thead>
                                         <tr>
                                             <td style="width:1%">#</td>
+                                             <td style="width:25%">Client</td>
                                             <td style="width:32%">Bussiness Type</td>
                                             <td style="width:20%">Commission</td>
                                             <td style="width:15%">Status</td>
@@ -251,6 +261,7 @@
                                                     <input type="checkbox"><span></span>
                                                 </label>
                                             </td>
+                                            <td>{{ $lead->company_name}} </td>
                                             <td>
                                                 <span class="kt-widget11__title">{{ $lead->plan_type == 1 ? "Product" : "Service"}}</span>
                                                 <span class="kt-widget11__sub">{{ App\Models\Admin\ProductAndService::where('id',$lead->plan_id)->first()->plan_name }}</span>
