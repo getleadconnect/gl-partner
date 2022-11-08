@@ -129,8 +129,8 @@
 
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Plan</label>
-                                {!! Form::select('plan_services', $product, null, ['class' => 'form-control hide_select','id'=>'product_list']) !!}
-                                {!! Form::select('plan_services', $services, null, ['class' => 'form-control','id'=>'service_list']) !!}
+                                {!! Form::select('plan_list', $product, null, ['class' => 'form-control hide_select','id'=>'product_list']) !!}
+                                {!! Form::select('services_list', $services, null, ['class' => 'form-control','id'=>'service_list']) !!}
                             </div>
 
                             <div class="col-md-6 form-group">

@@ -66,7 +66,6 @@ class PartnerController extends Controller
 
     public function createLead(Request $request)
     {
-        // dd($request->all());
         $validate= Validator()->make(request()->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -109,7 +108,7 @@ class PartnerController extends Controller
             $data->partner_id = Auth::guard('partner')->user()->id;
             $data->designation = request('designation');
             $data->plan_type = request('plan_type');
-            $data->plan_id = request('plan_services');
+            $data->plan_id = $request->plan_type == 1 ?request('plan_list') : request('services_list');
             $data->remarks = request('remarks');
             $flag = $data->save();
 
