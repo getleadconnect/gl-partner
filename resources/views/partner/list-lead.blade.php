@@ -53,7 +53,7 @@
                             <th>Company name</th>
                             <th>Total Amount</th>
                             <th>Commission</th>
-                            <th>Status</th>
+                            <th>Lead status</th>
                             <th>Payment Status</th>
                             <th>Actions</th>
                         </tr>
@@ -211,7 +211,7 @@
             {data: 'total_amount', name: 'total_amount'},
             {data: 'commission_amount', name: 'commission_amount'},
             {data: 'state', name: 'state'},
-            {data: 'payment_status', name: 'payment_status'},
+            {data: 'payment_stats', name: 'payment_stats'},
             {data: 'actions', name: 'actions'},
             ]
         });

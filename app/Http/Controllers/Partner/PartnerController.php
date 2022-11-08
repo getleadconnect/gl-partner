@@ -55,6 +55,21 @@ class PartnerController extends Controller
     
                             return $btn;
                     })
+                    ->addColumn('payment_stats', function($row){
+                        if($row->payment_status == 0)
+                        {
+                            $status = "paid";
+                        }
+                        if($row->payment_status == 1)
+                        {
+                            $status = "not paid";
+                        }
+                        if($row->payment_status == 2)
+                        {
+                            $status = "pending";
+                        }
+                        return $status;
+                    })
                     ->rawColumns(['actions'])
                     ->addIndexColumn()
                     ->make(true);
