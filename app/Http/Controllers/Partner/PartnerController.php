@@ -32,8 +32,9 @@ class PartnerController extends Controller
         $business_categories = BusinessCategory::get();
         $countries = CountryState::getCountries();
         $partners = ChannelPartner::select('id','name')->get();
-        $pad = ProductAndService::all();
-        return view('partner.list-lead', compact('countries','business_categories','amount_paid','amount_not_paid','unpaid_client','client','partners','pad'));
+        $product = ProductAndService::where('type',1)->pluck('plan_name','id');
+        $services = ProductAndService::where('type',2)->pluck('plan_name','id');
+        return view('partner.list-lead', compact('product','services','countries','business_categories','amount_paid','amount_not_paid','unpaid_client','client','partners'));
     }
 
     public function showLeads(Request $request)
@@ -108,7 +109,7 @@ class PartnerController extends Controller
             $data->partner_id = Auth::guard('partner')->user()->id;
             $data->designation = request('designation');
             $data->plan_type = request('plan_type');
-            $data->plan_id = request('pad');
+            $data->plan_id = request('plan_services');
             $data->remarks = request('remarks');
             $flag = $data->save();
 

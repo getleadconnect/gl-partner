@@ -2,6 +2,7 @@
 @section('style')
 <style>
     .bluish{color:#22b9ff;}
+    .hide_select{display:none;}
 </style>
 @endsection
 @section('content')
@@ -50,7 +51,10 @@
                             <th>Email</th>
                             <th>Designation</th>
                             <th>Company name</th>
+                            <th>Total Amount</th>
                             <th>Commission</th>
+                            <th>Status</th>
+                            <th>Payment Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -119,16 +123,14 @@
                                 <select id="plan_type" name="plan_type" class="form-control">
                                     <option value="0" selected disabled>Plan Type</option>
                                     <option value="1">Product</option>
-                                    <option value="2">Service</option>
+                                    <option value="2" selected>Service</option>
                                 </select>
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Plan</label>
-                                <select id="pad" name="pad" class="form-control">
-                                    <option value="0" selected disabled>Plan</option>
-
-                                </select>
+                                {!! Form::select('plan_services', $product, null, ['class' => 'form-control hide_select','id'=>'product_list']) !!}
+                                {!! Form::select('plan_services', $services, null, ['class' => 'form-control','id'=>'service_list']) !!}
                             </div>
 
                             <div class="col-md-6 form-group">
@@ -206,7 +208,10 @@
             {data: 'email', name: 'email'},
             {data: 'designation', name: 'designation'},
             {data: 'company_name', name: 'company_name'},
+            {data: 'total_amount', name: 'total_amount'},
             {data: 'commission_amount', name: 'commission_amount'},
+            {data: 'state', name: 'state'},
+            {data: 'payment_status', name: 'payment_status'},
             {data: 'actions', name: 'actions'},
             ]
         });
@@ -377,36 +382,43 @@
     $(document).ready(function(e) {
 
         $('#plan_type').on('change', function() {
-            var type = $('#plan_type').val();
-            planService(type, 'add')
+            if($(this).val()==1)
+            {
+                $("#product_list").removeClass("hide_select")
+                $("#service_list").addClass("hide_select")
+            }
+            else{
+                $("#product_list").addClass("hide_select")
+                $("#service_list").removeClass("hide_select")
+            }
         })
     });
 
-    function planService(type, flag) {
-        var BaseUrl = location.origin;
-        if (flag == 'add') {
-            $.ajax({
-                url: BaseUrl + '/admin/plan-service-list/' + type,
-                success: function(data) {
-                    $("#pad").empty()
-                    $("#pad").html(data.result)
+    // function planService(type, flag) {
+    //     var BaseUrl = location.origin;
+    //     if (flag == 'add') {
+    //         $.ajax({
+    //             url: BaseUrl + '/admin/plan-service-list/' + type,
+    //             success: function(data) {
+    //                 $("#pad").empty()
+    //                 $("#pad").html(data.result)
 
-                }
-            })
-        } else {
-            typeId = type.plan_type;
-            plan = type.plan_id;
-            $.ajax({
-                url: BaseUrl + '/admin/plan-service-list/' + typeId,
-                success: function(data) {
-                    $("#edit_pad").empty()
-                    $("#edit_pad").html(data.result)
-                    $('#edit_pad').val(plan);
-                }
-            })
-        }
+    //             }
+    //         })
+    //     } else {
+    //         typeId = type.plan_type;
+    //         plan = type.plan_id;
+    //         $.ajax({
+    //             url: BaseUrl + '/admin/plan-service-list/' + typeId,
+    //             success: function(data) {
+    //                 $("#edit_pad").empty()
+    //                 $("#edit_pad").html(data.result)
+    //                 $('#edit_pad').val(plan);
+    //             }
+    //         })
+    //     }
 
-    }
+    // }
 
     // $('#example').on('click', '.editBtn', function() {
     //     $('.editBtn').attr('disabled', 'disabled');

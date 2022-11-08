@@ -1,4 +1,4 @@
- @extends('layouts.frontend')
+@extends('layouts.frontend')
 @section('content')
  <section class="section2">
 	@if(session()->has('message'))
