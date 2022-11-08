@@ -16,8 +16,21 @@ class PlansAndServiceSeeder extends Seeder
     public function run()
     {
         $plan_arr = ['Gl-Scratch','Gl-Verify','SMS','IVR','GL Promo	','Campaigns','Missed Call'];
+        $product_arr = ['CRM','Ticket'];
 
         foreach($plan_arr as $value)
+        {
+            $service = new ProductAndService;
+            $service->plan_name = $value;
+            $service->type = 2;
+            $service->users = 5 ;
+            $service->month = 1;
+            $service->pricing = 250;
+            $service->added_by = 1;
+            $service->save();
+        }
+
+        foreach($product_arr as $value)
         {
             $service = new ProductAndService;
             $service->plan_name = $value;
