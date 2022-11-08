@@ -151,11 +151,11 @@
                                         <thead>
                                             <tr>
                                                 <td style="width:1%">#</td>
-                                                <td style="width:25%">Client</td>
-                                                <td style="width:30%">Bussiness Type</td>
-                                                <td style="width:25%">Commission</td>
+                                                <td style="width:33%">Client</td>
+                                                <td style="width:28%">Bussiness Type</td>
+                                                <td style="width:20%">Commission</td>
                                                 <td style="width:15%">Status</td>
-                                                <td style="width:25%" class="kt-align-right">Total revenue</td>
+                                                <td style="width:20%" class="kt-align-right">Revenue</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -246,11 +246,11 @@
                                     <thead>
                                         <tr>
                                             <td style="width:1%">#</td>
-                                             <td style="width:25%">Client</td>
-                                            <td style="width:32%">Bussiness Type</td>
+                                            <td style="width:33%">Client</td>
+                                            <td style="width:28%">Bussiness Type</td>
                                             <td style="width:20%">Commission</td>
                                             <td style="width:15%">Status</td>
-                                            <td style="width:20%" class="kt-align-right">Total revenue</td>
+                                            <td style="width:20%" class="kt-align-right">Revenue</td>
                                         </tr>
                                     </thead>
                                     <tbody>
