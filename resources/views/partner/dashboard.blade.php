@@ -237,7 +237,7 @@
                                     <thead>
                                         <tr>
                                             <td style="width:1%">#</td>
-                                            <td style="width:32%">Application</td>
+                                            <td style="width:32%">Bussiness Type</td>
                                             <td style="width:20%">Commission</td>
                                             <td style="width:15%">Status</td>
                                             <td style="width:20%" class="kt-align-right">Total revenue</td>
