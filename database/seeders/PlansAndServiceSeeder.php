@@ -15,6 +15,8 @@ class PlansAndServiceSeeder extends Seeder
      */
     public function run()
     {
+        ProductAndService::query()->truncate();
+
         $plan_arr = ['Gl-Scratch','Gl-Verify','SMS','IVR','GL Promo	','Campaigns','Missed Call'];
         $product_arr = ['CRM','Ticket'];
 
@@ -34,7 +36,7 @@ class PlansAndServiceSeeder extends Seeder
         {
             $service = new ProductAndService;
             $service->plan_name = $value;
-            $service->type = 2;
+            $service->type = 1;
             $service->users = 5 ;
             $service->month = 1;
             $service->pricing = 250;
