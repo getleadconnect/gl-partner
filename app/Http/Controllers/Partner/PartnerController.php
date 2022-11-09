@@ -40,7 +40,7 @@ class PartnerController extends Controller
     public function showLeads(Request $request)
     {
         if ($request->ajax()) {
-            $data = Client::where('partner_id',Auth::guard('partner')->user()->id)->select('*');
+            $data = Client::latest()->where('partner_id',Auth::guard('partner')->user()->id)->select('*');
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('actions', function($row){
