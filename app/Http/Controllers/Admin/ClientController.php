@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use Auth;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -65,7 +65,7 @@ class ClientController extends Controller
         // dd(request()->all());
         $validate= Validator()->make(request()->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            // 'email' => 'email',
             'mobile' => 'required|string|unique:users,mobile',
         ]);
         if ($validate->fails()) {
@@ -73,7 +73,7 @@ class ClientController extends Controller
             session()->flash('message','danger#'.$message->first());
             return back();
         }
-        $user = User::where('email', $request->email)->where('role_id', 1)->count();
+        $user = User::where('email', $request->email)->where('email','<>',null)->where('role_id', 1)->count();
         if ($user != 0) {
            session()->flash('message','danger#Client already exist');
             return back();
@@ -111,7 +111,26 @@ class ClientController extends Controller
             $flag = $data->save();
 
             $registeredUser = User::whereEmail($request->email)->first();
-            $result  = Mail::to($registeredUser)->send(new RegistrationMail($registeredUser,$randomString));
+
+            $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
+            $partner_name = Auth::guard('admin')->user()->name;
+
+            $botToken = "5455796089:AAFE6beeleWa1iTKhzLGDKrMwJxd30F1o3U";
+           
+            $data =[
+                'chat_id' => '-614845338',
+                'text'=> "Hey,
+        New Lead Added Via Partner Portal !!!
+        ------------------------------------
+        Partner => ".$partner_name."
+        Name => ".request('company_name').", 
+        Email => ".$request->email.",
+        Plan => ".$plan.",
+        Mobile => ".$request->mobile."",
+                ];
+            $response = file_get_contents("https://api.telegram.org/bot$botToken/sendMessage?" .http_build_query($data) );
+
+            // $result  = Mail::to($registeredUser)->send(new RegistrationMail($registeredUser,$randomString));
             DB::commit();
             session()->flash('message','Success#Client Added Succesfully');
             return redirect('admin/client');
@@ -159,7 +178,7 @@ class ClientController extends Controller
     {
         $this->validate($request, [
             'edit_name' => 'required',
-            'edit_email' => 'required',
+            // 'edit_email' => 'required',
             'edit_mobile' => 'required',
         ]);
         $status = request('status') ? true : false;
