@@ -131,17 +131,22 @@ class PartnerController extends Controller
             $data->remarks = request('remarks');
             $flag = $data->save();
 
+            $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
             $registeredUser = User::whereEmail($request->email)->first();
+            $partner_name = Auth::guard('partner')->user()->name;
+            $registeredUser['mobile'] = $request->mobile;
+            $registeredUser['plan'] = $plan;
+            $registeredUser['partner_name'] = $partner_name;
             $result  = Mail::to('akhil@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
            
             $botToken = "5455796089:AAFE6beeleWa1iTKhzLGDKrMwJxd30F1o3U";
-            $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
+           
             $data =[
                 'chat_id' => '-614845338',
                 'text'=> "Hey,
         New Lead Added Via Partner Portal !!!
         ------------------------------------
-        Partner => ".Auth::guard('partner')->user()->name."
+        Partner => ".$partner_name."
         Name => ".request('company_name').", 
         Email => ".$request->email.",
         Plan => ".$plan.",
