@@ -25,6 +25,7 @@ use App\Models\Frontend\BusinessAccount;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegistrationMail;
 use App\Mail\SendAccountDetails;
+use App\Mail\SendCCMail;
 use Illuminate\Support\Str;
 use CountryState;
 use DB;
@@ -876,6 +877,7 @@ class SettingController extends Controller
         $verifiedUser->password = $randomString;
         $verifiedUser->user_name = $verifiedUser->email;
         $result  = Mail::to($verifiedUser->email)->send(new SendAccountDetails($verifiedUser));
+        Mail::to('sharon@getlead.co.uk')->send(new SendCCMail($verifiedUser));
 
         if ($delete == 1) {
             $success = true;

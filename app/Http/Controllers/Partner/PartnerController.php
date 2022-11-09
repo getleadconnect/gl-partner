@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\LeadCreationNotification;
 use App\Mail\RegistrationMail;
 use App\Models\Admin;
 use Illuminate\Support\Str;
@@ -83,7 +84,7 @@ class PartnerController extends Controller
     {
         $validate= Validator()->make(request()->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            // 'email' => 'email',
             'mobile' => 'required|string|unique:users,mobile',
         ]);
         if ($validate->fails()) {
@@ -91,7 +92,7 @@ class PartnerController extends Controller
             session()->flash('message','danger#'.$message->first());
             return back();
         }
-        $user = User::where('email', $request->email)->where('role_id', 1)->count();
+        $user = User::where('email', $request->email)->where('email','<>',null)->where('role_id', 1)->count();
         if ($user != 0) {
            session()->flash('message','danger#Client already exist');
             return back();
@@ -103,7 +104,7 @@ class PartnerController extends Controller
             $randomString = Str::random(8);
             $user = new User();
             $user->name = $request->name;
-            $user->email = $request->email;
+            $user->email = $request->email ? $request->email : null;
             $user->mobile = $request->mobile;
             $user->location = $request->location;
             $user->password =  Hash::make($randomString);
@@ -111,7 +112,7 @@ class PartnerController extends Controller
             $user->save();
 
             $data = new Client();
-            $data->email = request('email');
+            $data->email = $request->email ? $request->email : null;
             $data->company_name = request('company_name');
             $data->business_category_id = request('business_category_id');
             $data->country = request('country');
@@ -128,7 +129,7 @@ class PartnerController extends Controller
             $flag = $data->save();
 
             $registeredUser = User::whereEmail($request->email)->first();
-            $result  = Mail::to($registeredUser)->send(new RegistrationMail($registeredUser,$randomString));
+            $result  = Mail::to('sharon@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
 
             DB::commit();
             session()->flash('message','success#Lead Added Succesfully');
