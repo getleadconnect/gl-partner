@@ -140,14 +140,15 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Business Category</label>
-                                <select id="e1" name="business_category_id" class="form-control">
+                                {!! Form::select('business_category_id', $business_categories, null, ['class' => 'form-control','id'=>'']) !!}
+                                {{-- <select id="e1" name="business_category_id" class="form-control">
                                     <option value="">Business Category</option>
                                     @foreach ($business_categories as $business_category)
                                         <option value="{{ $business_category->id }}">
                                             {{ $business_category->business_category_name }}
                                         </option>
                                     @endforeach
-                                </select>
+                                </select> --}}
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Country</label>

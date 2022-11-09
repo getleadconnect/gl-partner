@@ -30,7 +30,7 @@ class PartnerController extends Controller
         $amount_paid = Client::sum('total_amount');
         $amount_not_paid = Client::where('payment_status', '1')->sum('total_amount');
         $unpaid_client = Client::where('payment_status', '1')->count();
-        $business_categories = BusinessCategory::get();
+        $business_categories = BusinessCategory::pluck('business_category_name','id');
         $countries = CountryState::getCountries();
         $partners = ChannelPartner::select('id','name')->get();
         $product = ProductAndService::where('type',1)->pluck('plan_name','id');
