@@ -245,7 +245,7 @@ class ClientController extends Controller
                 return ProductAndService::where('id',$users->client->plan_id)->pluck('plan_name')->first();
             })
             ->addColumn('partner',function($users){
-                return ChannelPartner::where('id',$users->client->partner_id)->pluck('name')->first();
+                return User::where('id',$users->client->partner_id)->pluck('name')->first();
             })
             ->addColumn('commission',function($users){
                 $commission =  Client::where('id',$users->id)->pluck('commission_amount')->first() ?? 'No Commission';
