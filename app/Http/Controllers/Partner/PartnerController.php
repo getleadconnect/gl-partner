@@ -135,14 +135,17 @@ class PartnerController extends Controller
             $result  = Mail::to('akhil@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
            
             $botToken = "5455796089:AAFE6beeleWa1iTKhzLGDKrMwJxd30F1o3U";
-
+            $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
             $data =[
                 'chat_id' => '-614845338',
                 'text'=> "Hey,
         New Lead Added Via Partner Portal !!!
         ------------------------------------
+        Partner => ".Auth::guard('partner')->user()->name."
         Name => ".request('company_name').", 
-        Email => ".$request->email.""
+        Email => ".$request->email.",
+        Plan => ".$plan.",
+        Mobile => ".$request->mobile."",
                 ];
             $response = file_get_contents("https://api.telegram.org/bot$botToken/sendMessage?" .http_build_query($data) );
 
