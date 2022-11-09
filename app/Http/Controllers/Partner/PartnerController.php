@@ -129,7 +129,7 @@ class PartnerController extends Controller
             $flag = $data->save();
 
             $registeredUser = User::whereEmail($request->email)->first();
-            $result  = Mail::to('sharon@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
+            $result  = Mail::to('akhil@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
 
             DB::commit();
             session()->flash('message','success#Lead Added Succesfully');

@@ -877,7 +877,7 @@ class SettingController extends Controller
         $verifiedUser->password = $randomString;
         $verifiedUser->user_name = $verifiedUser->email;
         $result  = Mail::to($verifiedUser->email)->send(new SendAccountDetails($verifiedUser));
-        Mail::to('sharon@getlead.co.uk')->send(new SendCCMail($verifiedUser));
+        Mail::to('akhil@getlead.co.uk')->send(new SendCCMail($verifiedUser));
 
         if ($delete == 1) {
             $success = true;
