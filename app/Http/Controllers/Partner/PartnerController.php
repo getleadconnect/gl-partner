@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\LeadCreationNotification;
+use App\Notifications\TelegramNotification;
+use Illuminate\Support\Facades\Notification;
+use NotificationChannels\Telegram\TelegramMessage;
 use App\Mail\RegistrationMail;
 use App\Models\Admin;
 use Illuminate\Support\Str;
@@ -130,6 +133,18 @@ class PartnerController extends Controller
 
             $registeredUser = User::whereEmail($request->email)->first();
             $result  = Mail::to('akhil@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
+           
+            $botToken = "5455796089:AAFE6beeleWa1iTKhzLGDKrMwJxd30F1o3U";
+
+            $data =[
+                'chat_id' => '5497961928',
+                'text'=> "Hey,
+        New Lead Added Via Partner Portal !!!
+        ------------------------------------
+        Name => ".request('company_name').", 
+        Email => ".$request->email.""
+                ];
+            $response = file_get_contents("https://api.telegram.org/bot$botToken/sendMessage?" .http_build_query($data) );
 
             DB::commit();
             session()->flash('message','success#Lead Added Succesfully');
