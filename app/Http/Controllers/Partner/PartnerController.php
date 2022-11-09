@@ -137,7 +137,7 @@ class PartnerController extends Controller
             $botToken = "5455796089:AAFE6beeleWa1iTKhzLGDKrMwJxd30F1o3U";
 
             $data =[
-                'chat_id' => '5497961928',
+                'chat_id' => '-614845338',
                 'text'=> "Hey,
         New Lead Added Via Partner Portal !!!
         ------------------------------------
