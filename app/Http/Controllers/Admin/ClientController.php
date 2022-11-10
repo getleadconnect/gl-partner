@@ -34,9 +34,10 @@ class ClientController extends Controller
     public function index()
     {
         $client = User::where('role_id', 1)->count();
-        $amount_paid = Client::sum('total_amount');
-        $amount_not_paid = Client::where('payment_status', '1')->sum('total_amount');
-        $unpaid_client = Client::where('payment_status', '1')->count();
+        $all_clients = Client::all();
+        $amount_paid = $all_clients->where('payment_status', '0')->sum('total_amount');
+        $amount_not_paid = $all_clients->where('payment_status', '1')->sum('total_amount');
+        $unpaid_client = $all_clients->where('payment_status', '2')->count();
         $business_categories = BusinessCategory::get();
         $countries = CountryState::getCountries();
         $partners = ChannelPartner::select('id','name')->get();

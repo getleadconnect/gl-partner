@@ -35,7 +35,7 @@
                 <div class="col-md-12 col-lg-3 col-xl-3">
 
                     <!--begin::Amount Paid-->
-                    <div class="kt-widget24">
+                    <div class="kt-widget24 amount_paid status_highlight">
                         <div class="kt-widget24__details">
                             <div class="kt-widget24__info">
                                 <h4 class="kt-widget24__title">
@@ -57,7 +57,7 @@
                 <div class="col-md-12 col-lg-3 col-xl-3">
 
                     <!--begin::Amount not Paid-->
-                    <div class="kt-widget24">
+                    <div class="kt-widget24 amount_not_paid status_highlight">
                         <div class="kt-widget24__details">
                             <div class="kt-widget24__info">
                                 <h4 class="kt-widget24__title">
@@ -77,11 +77,11 @@
                 <div class="col-md-12 col-lg-3 col-xl-3">
 
                     <!--begin::Unpaid Clients-->
-                    <div class="kt-widget24">
+                    <div class="kt-widget24 amount_pending status_highlight">
                         <div class="kt-widget24__details">
                             <div class="kt-widget24__info">
                                 <h4 class="kt-widget24__title">
-                                    Unpaid Leads
+                                    Payment Pending Leads
                                 </h4>
                             </div>
                             <span class="kt-widget24__stats kt-font-success">
@@ -557,6 +557,25 @@
                 });
 
                 $('#status_filter').on('change',function(){
+        
+                    switch ($(this).val()) {
+                        case '0':
+                            $(".status_highlight").css({'border':'unset'})
+                            $(".amount_paid").css({'border':'1px solid #22b9ff'})
+                            break;
+                        case '1':
+                            $(".status_highlight").css({'border':'unset'})
+                            $(".amount_not_paid").css({'border':'1px solid #22b9ff'})
+                            break;
+                        case '2':
+                            $(".status_highlight").css({'border':'unset'})
+                            $(".amount_pending").css({'border':'1px solid #22b9ff'})
+                            break;
+                        default:
+                            $(".status_highlight").css({'border':'unset'})
+                            break;
+                    }
+
                     listData();
                 })
 
