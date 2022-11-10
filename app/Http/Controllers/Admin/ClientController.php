@@ -36,13 +36,16 @@ class ClientController extends Controller
         $client = User::where('role_id', 1)->count();
         $all_clients = Client::all();
         $amount_paid = $all_clients->where('payment_status', '0')->sum('total_amount');
+        $amount_paid_count = $all_clients->where('payment_status', '0')->count();
         $amount_not_paid = $all_clients->where('payment_status', '1')->sum('total_amount');
-        $unpaid_client = $all_clients->where('payment_status', '2')->count();
+        $amount_not_paid_count = $all_clients->where('payment_status', '1')->count();
+        $unpaid_client_count = $all_clients->where('payment_status', '2')->count();
+        $unpaid_client_sum = $all_clients->where('payment_status', '2')->sum('total_amount');
         $business_categories = BusinessCategory::get();
         $countries = CountryState::getCountries();
         $partners = ChannelPartner::select('id','name')->get();
         $pad = ProductAndService::all();
-        return view('admin.Members.list', compact('countries','business_categories','amount_paid','amount_not_paid','unpaid_client','client','partners','pad'));
+        return view('admin.Members.list', compact('unpaid_client_sum','amount_not_paid_count','amount_paid_count','countries','business_categories','amount_paid','amount_not_paid','unpaid_client_count','client','partners','pad'));
     }
 
     /**

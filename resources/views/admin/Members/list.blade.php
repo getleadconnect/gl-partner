@@ -38,13 +38,17 @@
                     <div class="kt-widget24 amount_paid status_highlight">
                         <div class="kt-widget24__details">
                             <div class="kt-widget24__info">
-                                <h4 class="kt-widget24__title">
+                                <h3 class="kt-widget24__title">
                                     Amount Paid
-                                </h4>
+                                </h3>
+                                <h4 style="font-size: 13px;" class="default_count_paid">No. Of Leads {{ $amount_paid_count }}</h4>
+                                {{-- <h4 style="font-size: 13px; display:none;" id="current_paid_count">No. Of Leads 76</h4> --}}
 
                             </div>
                             <span class="kt-widget24__stats kt-font-warning">
-                                {{ $amount_paid }}
+                                <div>
+                                    {{ $amount_paid }}
+                                </div>        
                             </span>
                         </div>
 
@@ -63,6 +67,7 @@
                                 <h4 class="kt-widget24__title">
                                     Amount not Paid
                                 </h4>
+                                <h4 style="font-size: 13px;" class="default_count_not_paid">No. Of Leads {{ $amount_not_paid_count }}</h4>
                             </div>
                             <span class="kt-widget24__stats kt-font-danger">
                                 {{ $amount_not_paid }}
@@ -81,11 +86,12 @@
                         <div class="kt-widget24__details">
                             <div class="kt-widget24__info">
                                 <h4 class="kt-widget24__title">
-                                    Payment Pending Leads
+                                    Payment Pending
                                 </h4>
+                                <h4 style="font-size: 13px;" class="default_count_not_paid">No. Of Leads {{ $unpaid_client_count }}</h4>
                             </div>
                             <span class="kt-widget24__stats kt-font-success">
-                                {{ $unpaid_client }}
+                                {{ $unpaid_client_sum }}
                             </span>
                         </div>
                         <div class="kt-widget24__action">
@@ -548,6 +554,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="count">
         {{-- //*remarksModal : End --}}
         <!--End::Row-->
         @push('scripts')
@@ -557,7 +564,8 @@
                 });
 
                 $('#status_filter').on('change',function(){
-        
+                   $count = listData();
+                   console.log($count)
                     switch ($(this).val()) {
                         case '0':
                             $(".status_highlight").css({'border':'unset'})
@@ -576,7 +584,7 @@
                             break;
                     }
 
-                    listData();
+                    
                 })
 
                 function listData() {
@@ -597,7 +605,13 @@
                             "type": "GET",
                             'data': {
                                 "status_filter" : $('#status_filter').val(),
-                            }
+                            },
+                            "dataSrc": function(res){
+                                var count = res.data.length;
+                                $("#count").val(count)
+                                return res.data;
+                            },
+                            
                         },
                         columns: [{
                                 // data: function(data, type, full, meta) {
