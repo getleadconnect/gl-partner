@@ -26,6 +26,7 @@ Route::group(['prefix' => 'partner'], function(){
         Route::get('list-leads','index')->name('list-leads');
         Route::get('edit-lead','editLead')->name('edit-lead');
         Route::post('update-lead','updateLead')->name('update-lead');
+        Route::post('list-service-plans','listServicePlans')->name('list-service-plans');
         Route::get('leads','showLeads')->name('display-leads');
         Route::post('create-lead','createLead')->name('create-lead');
     });

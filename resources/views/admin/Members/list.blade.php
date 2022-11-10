@@ -243,7 +243,6 @@
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Plan</label>
                                 <select id="pad" name="pad" class="form-control">
-                                    <option value="0" selected disabled>Plan</option>
 
                                 </select>
                             </div>

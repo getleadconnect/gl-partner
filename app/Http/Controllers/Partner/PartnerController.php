@@ -131,7 +131,16 @@ class PartnerController extends Controller
             $data->remarks = request('remarks');
             $flag = $data->save();
 
-            $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
+            // $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
+            if(request('plan_type'))
+            {
+                $plan = ProductAndService::where('id',request('plan_type'))->first();
+                $plan_name =  $plan->plan_name." ".$plan->users." users ".$plan->pricing." per month";
+            }
+            else{
+                $plan_name = "Not selected";
+            }
+
             $registeredUser = User::whereEmail($request->email)->first();
             $partner_name = Auth::guard('partner')->user()->name;
             $registeredUser['mobile'] = $request->mobile;
@@ -144,12 +153,12 @@ class PartnerController extends Controller
             $data =[
                 'chat_id' => '-614845338',
                 'text'=> "Hey,
-        New Lead Added Via Partner Portal !!!
+        New Lead Received Via Partner Portal !!!
         ------------------------------------
         Partner => ".$partner_name."
         Name => ".request('company_name').", 
         Email => ".$request->email.",
-        Plan => ".$plan.",
+        Plan => ".$plan_name.",
         Mobile => ".$request->mobile."",
                 ];
             $response = file_get_contents("https://api.telegram.org/bot$botToken/sendMessage?" .http_build_query($data) );
@@ -198,5 +207,23 @@ class PartnerController extends Controller
 
             session()->flash('message','success#Lead updated succesfully');
             return redirect()->route('list-leads');
+    }
+
+    public function listServicePlans(Request $request)
+    {
+        $list = ProductAndService::where('type',$request->plan_type)->get();
+        $arr = [];
+        $opt='';
+        $select_code = '';
+        foreach ($list as $key => $value)
+        {
+            $str = '';
+            $str.=$value->plan_name." ".$value->users." users ".$value->pricing." per month";
+            $opt.= '<option value='.$value->id.'>'.$str.'</option>';
+            $arr[$value->id] = $str;
+
+        }
+        $select_code = $select_code.$opt;
+        return response()->json(['result'=>$select_code]);
     }
 }

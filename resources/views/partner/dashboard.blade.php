@@ -151,7 +151,7 @@
                                         <thead>
                                             <tr>
                                                 <td style="width:1%">#</td>
-                                                <td style="width:33%">Client</td>
+                                                <td style="width:28%">Client</td>
                                                 <td style="width:28%">Bussiness Type</td>
                                                 <td style="width:20%">Commission</td>
                                                 <td style="width:15%">Status</td>
@@ -246,7 +246,7 @@
                                     <thead>
                                         <tr>
                                             <td style="width:1%">#</td>
-                                            <td style="width:33%">Client</td>
+                                            <td style="width:28%">Client</td>
                                             <td style="width:28%">Bussiness Type</td>
                                             <td style="width:20%">Commission</td>
                                             <td style="width:15%">Status</td>
@@ -264,7 +264,7 @@
                                             <td>{{ $lead->company_name}} </td>
                                             <td>
                                                 <span class="kt-widget11__title">{{ $lead->plan_type == 1 ? "Product" : "Service"}}</span>
-                                                <span class="kt-widget11__sub">{{ App\Models\Admin\ProductAndService::where('id',$lead->plan_id)->first()->plan_name }}</span>
+                                                <span class="kt-widget11__sub">{{ $lead->plan_id ? App\Models\Admin\ProductAndService::where('id',$lead->plan_id)->first()->plan_name : "No plan selected" }}</span>
                                             </td>
                                             <td>{{ $lead->commission_amount ? $lead->commission_amount." ₹" : 'not disclosed'}} </td>
                                             <td>

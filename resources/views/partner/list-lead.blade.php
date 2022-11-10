@@ -123,15 +123,22 @@
                                 <select id="plan_type" name="plan_type" class="form-control">
                                     <option value="0" selected disabled>Plan Type</option>
                                     <option value="1">Product</option>
-                                    <option value="2" selected>Service</option>
+                                    <option value="2">Service</option>
                                 </select>
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Plan</label>
+                                <select id="pad" name="pad" class="form-control">
+
+                                </select>
+                            </div>
+
+                            {{-- <div class="col-md-6 form-group">
+                                <label for="recipient-name" class="form-control-label">Plan</label>
                                 {!! Form::select('plan_list', $product, null, ['class' => 'form-control hide_select','id'=>'product_list']) !!}
                                 {!! Form::select('services_list', $services, null, ['class' => 'form-control','id'=>'service_list']) !!}
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Company Name</label>
@@ -225,6 +232,21 @@
         $('#lead-form').attr('action', create_url); 
         $('#lead_submit').html("Save");
         $("#lead-form").trigger("reset");
+    })
+
+    $('#plan_type').on('change', function() {
+        $.ajax({
+               type:'POST',
+               url: "{{ url('partner/list-service-plans') }}",
+               data:{
+                "_token" : "{{ csrf_token() }}",
+                'plan_type' : $(this).val()
+               },
+               success:function(data) {
+                $("#pad").empty()
+                $("#pad").html(data.result)
+               }
+            });
     })
 
     $(document).on('click','.edit-lead-btn',function()

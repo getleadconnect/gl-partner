@@ -112,20 +112,28 @@ class ClientController extends Controller
 
             $registeredUser = User::whereEmail($request->email)->first();
 
-            $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
-            $partner_name = Auth::guard('admin')->user()->name;
+            if(request('plan_type'))
+            {
+                $plan = ProductAndService::where('id',request('plan_type'))->first();
+                $plan_name =  $plan->plan_name." ".$plan->users." users ".$plan->pricing." per month";
+            }
+            else{
+                $plan_name = "Not selected";
+            }
+
+            $partner_name = ChannelPartner::where('id',request('partner_id'))->first()->name;
 
             $botToken = "5455796089:AAFE6beeleWa1iTKhzLGDKrMwJxd30F1o3U";
            
             $data =[
                 'chat_id' => '-614845338',
                 'text'=> "Hey,
-        New Lead Added Via Partner Portal !!!
+        New Lead Received Via Partner Portal !!!
         ------------------------------------
         Partner => ".$partner_name."
         Name => ".request('company_name').", 
         Email => ".$request->email.",
-        Plan => ".$plan.",
+        Plan => ".$plan_name.",
         Mobile => ".$request->mobile."",
                 ];
             $response = file_get_contents("https://api.telegram.org/bot$botToken/sendMessage?" .http_build_query($data) );
@@ -264,7 +272,7 @@ class ClientController extends Controller
                 return ProductAndService::where('id',$users->client->plan_id)->pluck('plan_name')->first();
             })
             ->addColumn('partner',function($users){
-                return User::where('id',$users->client->partner_id)->pluck('name')->first();
+                return ChannelPartner::where('id',$users->client->partner_id)->pluck('name')->first();
             })
             ->addColumn('commission',function($users){
                 $commission =  Client::where('id',$users->id)->pluck('commission_amount')->first() ?? 'No Commission';
@@ -294,7 +302,7 @@ class ClientController extends Controller
         $list = ProductAndService::where('type',$type)->get();
         $arr = [];
         $opt='';
-        $select_code = '<option value="0" selected disabled>Plan</option>';
+        $select_code = '';
         foreach ($list as $key => $value)
         {
             $str = '';
