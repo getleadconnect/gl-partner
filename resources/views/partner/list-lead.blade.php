@@ -86,6 +86,17 @@
                                 <input type="text" class="form-control" placeholder="Customer Name"
                                     value="{{ old('name') }}" name="name" id="name" required>
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label for="recipient-name" class="form-control-label">Mobile Number<span
+                                        style="color: red;">*</span></label>
+                                <input type="number" class="form-control" placeholder="Mobile Number"
+                                    value="{{ old('mobile') }}" name="mobile" id="mobile" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="recipient-name" class="form-control-label">Company Name</label>
+                                <input type="text" class="form-control" placeholder="Company Name"
+                                    value="{{ old('company_name') }}" name="company_name" id="company_name">
+                            </div>
                             {{-- //*Designation Start --}}
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Designation<span
@@ -106,16 +117,23 @@
                                     {{-- {!! Form::select('partner_id', $partners, null, ['class' => 'form-control', 'id' => 'partner_id']) !!} --}}
                             {{-- </div> --}}
 
-                            <div class="col-md-6 form-group">
-                                <label for="recipient-name" class="form-control-label">Mobile Number<span
-                                        style="color: red;">*</span></label>
-                                <input type="number" class="form-control" placeholder="Mobile Number"
-                                    value="{{ old('mobile') }}" name="mobile" id="mobile" required>
-                            </div>
+                            
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Email</label>
                                 <input type="text" class="form-control" placeholder="Email"
                                     value="{{ old('email') }}" name="email" id="email">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="recipient-name" class="form-control-label">Business Category</label>
+                                {!! Form::select('business_category_id', $business_categories, null, ['class' => 'form-control','id'=>'']) !!}
+                                {{-- <select id="e1" name="business_category_id" class="form-control">
+                                    <option value="">Business Category</option>
+                                    @foreach ($business_categories as $business_category)
+                                        <option value="{{ $business_category->id }}">
+                                            {{ $business_category->business_category_name }}
+                                        </option>
+                                    @endforeach
+                                </select> --}}
                             </div>
 
                             <div class="col-md-6 form-group">
@@ -140,23 +158,8 @@
                                 {!! Form::select('services_list', $services, null, ['class' => 'form-control','id'=>'service_list']) !!}
                             </div> --}}
 
-                            <div class="col-md-6 form-group">
-                                <label for="recipient-name" class="form-control-label">Company Name</label>
-                                <input type="text" class="form-control" placeholder="Company Name"
-                                    value="{{ old('company_name') }}" name="company_name" id="company_name">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="recipient-name" class="form-control-label">Business Category</label>
-                                {!! Form::select('business_category_id', $business_categories, null, ['class' => 'form-control','id'=>'']) !!}
-                                {{-- <select id="e1" name="business_category_id" class="form-control">
-                                    <option value="">Business Category</option>
-                                    @foreach ($business_categories as $business_category)
-                                        <option value="{{ $business_category->id }}">
-                                            {{ $business_category->business_category_name }}
-                                        </option>
-                                    @endforeach
-                                </select> --}}
-                            </div>
+                            
+                            
                             <div class="col-md-6 form-group">
                                 <label for="recipient-name" class="form-control-label">Country</label>
                                 <select placeholder="Country" name="country" id="country" class="form-control">
