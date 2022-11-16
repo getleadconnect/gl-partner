@@ -157,7 +157,8 @@ class PartnerController extends Controller
         New Lead Received Via Partner Portal !!!
         ------------------------------------
         Partner => ".$partner_name."
-        Name => ".request('company_name').", 
+        Comapany Name => ".request('company_name').", 
+        Client Name => ".$request->name.",
         Email => ".$request->email.",
         Plan => ".$plan_name.",
         Mobile => ".$request->mobile."",
