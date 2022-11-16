@@ -9,7 +9,7 @@
                 <div class="col-md-12 col-lg-3 col-xl-3">
                     <!--begin::Total Profit-->
                     <div class="kt-widget24">
-                        <div class="kt-widget24__details">
+                        <div class="kt-widget24__details" style="margin-top:4%;">
                             <div class="kt-widget24__info">
                                 <h4 class="kt-widget24__title">
                                     Total Referal Leads

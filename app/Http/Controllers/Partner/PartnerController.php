@@ -85,6 +85,7 @@ class PartnerController extends Controller
 
     public function createLead(Request $request)
     {
+        // dd($request->all());
         $validate= Validator()->make(request()->all(), [
             'name' => 'required',
             // 'email' => 'email',
@@ -132,7 +133,7 @@ class PartnerController extends Controller
             $flag = $data->save();
 
             // $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
-            if(request('plan_type'))
+            if($request->has('plan_type'))
             {
                 $plan = ProductAndService::where('id',request('plan_type'))->first();
                 $plan_name =  $plan->plan_name." ".$plan->users." users ".$plan->pricing." per month";
@@ -144,7 +145,7 @@ class PartnerController extends Controller
             $registeredUser = User::whereEmail($request->email)->first();
             $partner_name = Auth::guard('partner')->user()->name;
             $registeredUser['mobile'] = $request->mobile;
-            $registeredUser['plan'] = $plan;
+            $registeredUser['plan'] = $plan_name;
             $registeredUser['partner_name'] = $partner_name;
             $result  = Mail::to('akhil@getlead.co.uk')->send(new LeadCreationNotification($registeredUser));
            
