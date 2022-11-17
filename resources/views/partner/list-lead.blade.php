@@ -48,9 +48,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Email</th>
-                            <th>Designation</th>
                             <th>Company name</th>
+                            <th>Email</th>
                             <th>Total Amount</th>
                             <th>Commission</th>
                             <th>Lead status</th>
@@ -215,10 +214,9 @@
             serverSide: true,
             ajax: "{{ route('display-leads') }}",
             columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-            {data: 'email', name: 'email'},
-            {data: 'designation', name: 'designation'},
+            {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
             {data: 'company_name', name: 'company_name'},
+            {data: 'email', name: 'email'},
             {data: 'total_amount', name: 'total_amount'},
             {data: 'commission_amount', name: 'commission_amount'},
             {data: 'state', name: 'state'},
