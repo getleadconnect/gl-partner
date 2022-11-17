@@ -116,9 +116,9 @@ class ClientController extends Controller
 
             $registeredUser = User::whereEmail($request->email)->first();
 
-            if(request('plan_type'))
+            if(request('pad'))
             {
-                $plan = ProductAndService::where('id',request('plan_type'))->first();
+                $plan = ProductAndService::where('id',request('pad'))->first();
                 $plan_name =  $plan->plan_name." ".$plan->users." users ".$plan->pricing." per month";
             }
             else{

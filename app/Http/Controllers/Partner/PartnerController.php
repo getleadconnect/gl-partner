@@ -128,14 +128,14 @@ class PartnerController extends Controller
             $data->partner_id = Auth::guard('partner')->user()->id;
             $data->designation = request('designation');
             $data->plan_type = request('plan_type');
-            $data->plan_id = $request->plan_type == 1 ?request('plan_list') : request('services_list');
+            $data->plan_id = $request->pad;
             $data->remarks = request('remarks');
             $flag = $data->save();
 
             // $plan= ProductAndService::where('id',request('plan_type'))->first()->plan_name;
-            if($request->has('plan_type'))
+            if($request->has('pad'))
             {
-                $plan = ProductAndService::where('id',request('plan_type'))->first();
+                $plan = ProductAndService::where('id',request('pad'))->first();
                 $plan_name =  $plan->plan_name." ".$plan->users." users ".$plan->pricing." per month";
             }
             else{

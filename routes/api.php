@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(SettingsController::class)->group(function(){
     Route::post('delete-leads', 'delete_leads');
     Route::post('find-partner-id', 'getPartnerId');
+    Route::post('find-lead-id', 'getLeadId');
 });

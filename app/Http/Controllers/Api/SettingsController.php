@@ -37,4 +37,9 @@ class SettingsController extends Controller
             return response()->json(['success'=>false,'msg'=>'Data Not Found !!!','partner_id'=>0]);
         }
     }
+
+    public function getLeadId(Request $request)
+    {
+        
+    }
 }
