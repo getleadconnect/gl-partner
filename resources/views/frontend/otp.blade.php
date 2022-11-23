@@ -26,7 +26,7 @@
                              <div class="row">
                                  <div class="col-lg-1"></div>
                                  <div class="col-lg-11 rowq">
-                                     <label for="exampleInputEmail1" id="form-name">Enter the otp*</label>
+                                     <label for="exampleInputEmail1" id="form-name">Enter the mail otp*</label>
                                      <input type="text" style="width: 600px;" class="form-control"
                                          id="exampleInputEmail1" aria-describedby="emailHelp" name="otp" required>
                                  </div>

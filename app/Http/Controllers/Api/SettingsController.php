@@ -38,8 +38,9 @@ class SettingsController extends Controller
         }
     }
 
-    public function getLeadId(Request $request)
+    public function searchLead(Request $request)
     {
-        
+        $client = User::where('name', 'like', '%' . request('search') . '%')->with('Client')->get();
+        return response()->json(['success'=>true,'msg'=>'Data Retrieved successfully !!!','client'=>$client]);
     }
 }

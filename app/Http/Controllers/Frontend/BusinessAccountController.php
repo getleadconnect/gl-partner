@@ -144,7 +144,7 @@ class BusinessAccountController extends Controller
                     'otp'=>null
             ]);
             Session::forget('otp');
-            Alert::success('Your Email is Verified, We will contact you soon')->persistent('Close');
+            Alert::success('Your Email is Verified, We will mail you the login credentials once approved by the admin.')->persistent('Close');
             return redirect('/');
         }
         else{
