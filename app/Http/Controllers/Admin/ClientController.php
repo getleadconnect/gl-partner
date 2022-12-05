@@ -298,6 +298,7 @@ class ClientController extends Controller
                 </a>';
             })
             ->rawColumns(['actions','status','amount','remarks','partner'])
+            ->addIndexColumn()
             ->make(true);
     }
 

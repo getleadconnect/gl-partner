@@ -806,6 +806,7 @@ class SettingController extends Controller
             ->editColumn('updated_at', function ($BusinessAccount) {
                 return date('d/m/Y H:i', strtotime($BusinessAccount->updated_at));
             })
+            ->addIndexColumn()
             ->rawColumns(['company_name','country'])
             ->make(true);
     }
@@ -821,6 +822,7 @@ class SettingController extends Controller
             ->editColumn('updated_at', function ($BusinessAccount) {
                 return date('d/m/Y H:i', strtotime($BusinessAccount->updated_at));
             })
+            ->addIndexColumn()
             ->make(true);
     }
 

@@ -617,8 +617,8 @@
                                 // data: function(data, type, full, meta) {
                                 //     return meta.row + meta.settings._iDisplayStart + 1;
                                 // },
-                                data: 'id',
-                                name: 'id'
+                                data: 'DT_RowIndex',
+                                name: 'DT_RowIndex'
                             },
                             {
                                 data: 'name',
